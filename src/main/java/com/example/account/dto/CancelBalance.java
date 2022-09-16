@@ -1,15 +1,14 @@
 package com.example.account.dto;
 
-
 import com.example.account.type.TransactionResultType;
 import lombok.*;
 
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
-public class UseBalance {
+public class CancelBalance {
     /**
-     *  "userId":1,
+     *  "trancactionId":1,
      *  "accountNumber": "100000000".
      *  "amount"1000
      **/
@@ -18,9 +17,8 @@ public class UseBalance {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Request {
-        @NotNull
-        @Min(1)
-        private Long userId;
+        @NotBlank
+        private String transactionId;
 
         @NotBlank
         @Size(min = 10, max = 10)

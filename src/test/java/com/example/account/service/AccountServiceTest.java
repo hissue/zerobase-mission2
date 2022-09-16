@@ -98,7 +98,7 @@ class AccountServiceTest {
     }
 
     @Test
-    @DisplayName("해당 유저 없음 계좌 생성 실패")
+    @DisplayName("해당 유저 없음 - 계좌 생성 실패")
     void createAccount_UserNotFound() {
         //given
 
@@ -192,7 +192,7 @@ class AccountServiceTest {
         AccountException exception = assertThrows(AccountException.class,
                 () -> accountService.deleteAccount(1L,"1234567890"));
         //then
-        assertEquals(ErrorCode.Account_NOT_FOUND, exception.getErrorCode());
+        assertEquals(ErrorCode.ACCOUNT_NOT_FOUND, exception.getErrorCode());
     }
 
     @Test
@@ -268,7 +268,7 @@ class AccountServiceTest {
     }
 
     @Test
-    void sucessGetAccountsByUserId(){
+    void successGetAccountsByUserId(){
        //given
         AccountUser pobi = AccountUser.builder()
                 .id(12L)
